@@ -1,6 +1,6 @@
-🪐 <h1>Coding Challenge [Marzo]:</h1> <h2>Asteroids</h2> ☄️
+<h1>Coding Challenge [Marzo]:</h1> <h2>Asteroids</h2> 
 
-📌 <h3>Crear en Unity o en Godot un clon del videojuego Asteroids.</h3>
+<h3>Crear en Unity o en Godot un clon del videojuego Asteroids.</h3>
 
 <p>Asteroids es un popular videojuego arcade basado en vectores lanzado en 1979 por Atari. El objetivo del juego es disparar y destruir asteroides evitando chocar contra los fragmentos que se desprenden de estos</p>
 
