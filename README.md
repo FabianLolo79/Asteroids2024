@@ -4,7 +4,7 @@
 
 <p>Asteroids es un popular videojuego arcade basado en vectores lanzado en 1979 por Atari. El objetivo del juego es disparar y destruir asteroides evitando chocar contra los fragmentos que se desprenden de estos</p>
 
-💻 <h2>Controles: teclado o joystick.</h2>
+<h2>Controles: teclado o joystick.</h2>
 <ol>
   <li> Replicar el primer nivel juego original de Asteroids.</li>
   <li> Publicar el juego para PC en itch.io, que se pueda jugar en la web (que no sea necesario descargarlo). **</li>
