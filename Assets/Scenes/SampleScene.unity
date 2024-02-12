@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94397589}
   - component: {fileID: 94397588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoundaryTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905633656}
   - component: {fileID: 905633655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoundaryRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957561037}
   - component: {fileID: 957561036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoundaryLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957605981}
   - component: {fileID: 957605980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoundaryBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,8 +669,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.051921207, y: 1.2672973}
-  m_Size: {x: 2.271719, y: 6.772645}
+  m_Offset: {x: 0.051921207, y: 1.4087474}
+  m_Size: {x: 2.271719, y: 7.0555487}
   m_Direction: 0
 --- !u!114 &1238319799
 MonoBehaviour:
@@ -696,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1733157281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Limits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,6 +722,55 @@ Transform:
   - {fileID: 905633656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1768717933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768717935}
+  - component: {fileID: 1768717934}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768717934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768717933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e42b09bec969004da860ab72b63418d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 555388597622923357, guid: 852dfc8d38956c140a48a91af204ba7f, type: 3}
+  trajectoryVariance: 15
+  spawnRate: 2
+  spawnDistance: 15
+  spawnAmount: 1
+--- !u!4 &1768717935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768717933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -729,3 +778,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1733157281}
   - {fileID: 1238319796}
+  - {fileID: 1768717935}
