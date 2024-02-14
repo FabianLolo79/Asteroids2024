@@ -8,8 +8,8 @@ public class Asteroid : MonoBehaviour
 {
     public Sprite[] sprites; //matriz de sprites
     public float size = 1.0f; 
-    public float minSize = 0.09f;
-    public float maxSize = 0.3f;
+    public float minSize = 0.09f; // < 0.10f
+    public float maxSize = 0.30f;
     public float speed = 2.5f;
     public float maxLifeTime = 30.0f;
 
