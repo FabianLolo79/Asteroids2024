@@ -5,13 +5,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    public ParticleSystem explosion;
+
     public float respawnTime = 3.0f;
     public float respawnInvulnerabilityTime = 3.0f;
     public int lives = 3;
+    public int score = 0;
 
+    public void AsteroidDestroyed(Asteroid asteroid)
+    {
+        this.explosion.transform.position = asteroid.transform.position;
+        this.explosion.Play();
+
+        //TODO: incrementar score
+    }
     public void PlayerDied()
     {
-        this.lives--;
+        this.explosion.transform.position = this.player.transform.position;//particulas explosion al morir
+        this.explosion.Play();
+
+        this.lives--; 
 
         if (this.lives <= 0)
         {
