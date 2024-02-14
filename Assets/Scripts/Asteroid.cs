@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ public class Asteroid : MonoBehaviour
 {
     public Sprite[] sprites; //matriz de sprites
     public float size = 1.0f; 
-    public float minSize = 0.05f;
-    public float maxSize = 0.5f;
-    public float speed = 8.0f;
+    public float minSize = 0.09f;
+    public float maxSize = 0.3f;
+    public float speed = 2.5f;
     public float maxLifeTime = 30.0f;
 
     private SpriteRenderer _spriteRenderer;
@@ -37,5 +38,28 @@ public class Asteroid : MonoBehaviour
     {
         _rigidbody.AddForce(direction * this.speed);
         Destroy(this.gameObject, this.maxLifeTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            if((this.size * 0.5f) >= this.minSize)
+            {
+                CreateSplit();
+                CreateSplit();
+            }
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void CreateSplit()
+    {
+        Vector2 position = this.transform.position;
+        position += Random.insideUnitCircle * 0.5f;
+
+        Asteroid half = Instantiate(this, position, this.transform.rotation);
+        half.size = this.size * 0.5f;
+        half.SetTrayectory(Random.insideUnitCircle.normalized * this.speed);
     }
 }

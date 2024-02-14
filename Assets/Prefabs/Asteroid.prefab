@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 555388597622923357}
   m_Layer: 8
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5ef478499bbc3af41af3220fe8dc7bf8, type: 3}
   - {fileID: 21300000, guid: e011fbf720f73c343933f4ab601bfc36, type: 3}
   size: 1
-  minSize: 0.05
-  maxSize: 0.5
-  speed: 3
+  minSize: 0.09
+  maxSize: 0.3
+  speed: 2.5
   maxLifeTime: 30

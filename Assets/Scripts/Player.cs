@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update() //siempre se capturan las teclas de input
     {
-        // empujando cuando 
+        // empujando cuando se cumpla cualquiera de las 2 condiciones
         _thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow); 
     
         // giro
@@ -55,12 +55,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate() // siempre se mueven objetos por rigidbody
     {
-        if (_thrusting)
+        if (_thrusting) //avanzar
         {
             _rigidbody.AddForce(transform.up * thrustSpeed);
         }
 
-        if (_turnDirection != 0.0f)
+        if (_turnDirection != 0.0f) //girar
         {
             _rigidbody.AddTorque(_turnDirection * turnSpeed);
         }
@@ -72,5 +72,16 @@ public class Player : MonoBehaviour
         bullet.Proyect(this.transform.up);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = 0.0f;
 
+            this.gameObject.SetActive(false);
+
+            FindObjectOfType<GameManager>().PlayerDied();//referencia al game manager
+        }
+    }
 }
