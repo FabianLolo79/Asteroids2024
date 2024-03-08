@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
     public Bullet bulletPrefab;
 
+    public AudioClip bulletSound;
+    public AudioClip explotionSound;
+    private AudioSource playerSound;
+        
     public float thrustSpeed = 1.0f; //velocidad de empuje
     public float turnSpeed = 1.0f; //velocidad de giro
 
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        playerSound = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -70,6 +75,7 @@ public class Player : MonoBehaviour
     {
         Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
         bullet.Proyect(this.transform.up);
+        playerSound.PlayOneShot(bulletSound, 0.5f);        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour
         {
             _rigidbody.velocity = Vector3.zero;
             _rigidbody.angularVelocity = 0.0f;
-
+            playerSound.PlayOneShot(explotionSound, 1.0f);
             this.gameObject.SetActive(false);
 
             FindObjectOfType<GameManager>().PlayerDied();//referencia al game manager

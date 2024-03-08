@@ -16,10 +16,14 @@ public class Asteroid : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
+    private AudioSource asteroidSound; // no funciona
+    public AudioClip explotion;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        asteroidSound = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -44,6 +48,7 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
+            //asteroidSound.PlayOneShot(explotion, 1.0f);
             if((this.size * 0.5f) >= this.minSize)
             {
                 CreateSplit();
@@ -51,6 +56,7 @@ public class Asteroid : MonoBehaviour
             }
             FindObjectOfType<GameManager>().AsteroidDestroyed(this);
             Destroy(this.gameObject);
+            //asteroidSound.PlayOneShot(explotion, 1.0f);
         }
     }
 

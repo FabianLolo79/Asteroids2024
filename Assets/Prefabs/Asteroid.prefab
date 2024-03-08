@@ -246,3 +246,4 @@ MonoBehaviour:
   maxSize: 0.3
   speed: 1.5
   maxLifeTime: 30
+  explotion: {fileID: 8300000, guid: 28df608c4c1ce824d84387f9f2698132, type: 3}
