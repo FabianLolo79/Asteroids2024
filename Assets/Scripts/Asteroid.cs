@@ -13,6 +13,9 @@ public class Asteroid : MonoBehaviour
     public float speed = 2.5f;
     public float maxLifeTime = 30.0f;
 
+    //referencia para actualizar el score
+    public GameManager gameManager;
+
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
@@ -36,6 +39,8 @@ public class Asteroid : MonoBehaviour
         this.transform.localScale = Vector3.one * this.size; //tamaño aleatorio
 
         _rigidbody.mass = this.size; //masa aleatoria deacuerdo a su tamaño?
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void SetTrayectory(Vector2 direction)
@@ -48,6 +53,7 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
+            gameManager.UpdateScore(100);
             //asteroidSound.PlayOneShot(explotion, 1.0f);
             if((this.size * 0.5f) >= this.minSize)
             {
